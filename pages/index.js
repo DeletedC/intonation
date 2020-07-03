@@ -1,11 +1,14 @@
 import React from 'react';
 import fetch from 'isomorphic-unfetch';
+import Layout from '../components/Layout';
 
 
 
 const Index = (props) => {
     return (
-        <h1>Hello! I'm the Index page.</h1>
+        <Layout>
+            <h1>Hello! I'm the Index page.</h1>
+        </Layout>
     );
 };
 
