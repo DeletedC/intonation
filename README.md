@@ -2,7 +2,7 @@
 ## Student Management App
 ### By Curtis Woods
 
-## Tecnologies Used
+## Technologies Used
 
 1. React
 2. Next.js
