@@ -1,6 +1,8 @@
 import React from 'react';
 
-const NewStudent = (props) => {
+const Form = (props) => {
+
+    
 
     const [formData, setFormData] = React.useState(props.initial);
 
@@ -14,6 +16,13 @@ const NewStudent = (props) => {
 
     return (
         <form>
+            <input 
+                type="text" 
+                name="userName" 
+                placeholder="User Name"
+                value={formData.userName}
+                onChange={handleChange}>
+            </input>
             <input 
                 type="text" 
                 name="firstName" 
@@ -45,10 +54,19 @@ const NewStudent = (props) => {
                 onChange={handleChange}>
             </input>
             <input 
-                type="text" 
+                type="number"
+                    min="1"
+                    max="10"
                 name="level" 
                 placeholder="Level"
                 value={formData.level}
+                onChange={handleChange}>
+            </input>
+            <input 
+                type="text" 
+                name="teacher" 
+                placeholder="Teacher"
+                value={formData.teacher}
                 onChange={handleChange}>
             </input>
             <button onClick={() => {
@@ -59,4 +77,4 @@ const NewStudent = (props) => {
     );
 };
 
-export default NewStudent;
+export default Form;
