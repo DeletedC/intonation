@@ -13,7 +13,7 @@ const Layout = (props) => {
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer/>
                 <title>Intonation</title>
             </Head>
-            <div>
+            <div className="container">
                 <Nav/>
                 {props.children}
             </div>

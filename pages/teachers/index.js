@@ -9,13 +9,15 @@ const Index = (props) => {
     return (
         <Layout>
             <h1>Teacher Dashboard</h1>
+            <button>Add Student</button>
+            <h3>Students</h3>
             <ul>
-                {data?
-                (data.map((student, index) => {
+                {data !== []?
+                data.map((student, index) => {
                     return (
                         <li>{student.firstName} {student.lastName}</li>
                     );
-                }))
+                })
                 : "Nothing to load."
                 }
             </ul>

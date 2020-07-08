@@ -5,6 +5,7 @@ const Nav = () => {
         <nav>
             <Link href={'/'}><a>Home</a></Link>
             <Link href={'/about'}><a>About</a></Link>
+            <Link href={'/teachers'}><a>Dashboard</a></Link>
         </nav>
     );
 };
