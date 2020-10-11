@@ -11,7 +11,7 @@ const Index = (props) => {
         userName: "",
         firstName: "",
         lastName: "",
-        age: null,
+        age: 1,
         bio: "",
         level: "",
         teacher: ""
@@ -29,7 +29,7 @@ const Index = (props) => {
  
     
     const handleCreate = async (data) => {
-        const response = await fetch('localhost:8000/students', {
+        const response = await fetch('http://localhost:8000/students', {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ const Index = (props) => {
     };
 
     const handleDelete = async (userName) => {
-        const response = await fetch(`localhost:8000/students/${userName}`, {
+        const response = await fetch(`http://localhost:8000/students/${userName}`, {
           method: "DELETE"
         });
       };
@@ -50,7 +50,7 @@ const Index = (props) => {
             <button>Add Student</button>
             <h3>Students</h3>
             <Form initial={nullStudent} handleSubmit={handleCreate}/>
-            <ul>
+            <ul className="left">
                 {data !== []?
                 data.map((student, index) => {
                     return (

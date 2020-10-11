@@ -8,7 +8,11 @@ const Index = (props) => {
     const data = props.data;
     return (
         <Layout>
-            <h1>Hello! I'm the Index page.</h1>
+            <header className="center-align">
+                <h1>Welcome to Intonation</h1>
+                <h2>Student Tracking App</h2>
+            </header>
+            
         </Layout>
     );
 };
