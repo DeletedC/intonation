@@ -29,19 +29,27 @@ const Index = (props) => {
  
     
     const handleCreate = async (data) => {
-        const response = await fetch('http://localhost:8000/students', {
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        });
+        try {
+            const response = await fetch('http://localhost:8000/students', {
+                method: "POST",
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+              });
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const handleDelete = async (userName) => {
-        const response = await fetch(`http://localhost:8000/students/${userName}`, {
-          method: "DELETE"
-        });
+        try {
+            const response = await fetch(`http://localhost:8000/students/${userName}`, {
+                method: "DELETE"
+              });
+        } catch (error) {
+            console.log(error);
+        }
       };
     
     return (
@@ -51,7 +59,7 @@ const Index = (props) => {
             <h3>Students</h3>
             <Form initial={nullStudent} handleSubmit={handleCreate}/>
             <ul className="left">
-                {data !== []?
+                {data !== 'noDatabase'?
                 data.map((student, index) => {
                     return (
                         <li>Name: {student.firstName} {student.lastName} <br/>
@@ -65,7 +73,7 @@ const Index = (props) => {
                         </li>
                     );
                 })
-                : "Nothing to load."
+                : "Database is down. Please check back later."
                 }
             </ul>
         </Layout>
@@ -73,10 +81,15 @@ const Index = (props) => {
 };
 
 Index.getInitialProps = async () => {
-    const res = await fetch('http://localhost:8000/students');
-    const data = await res.json();
-    return {
-        data
+    try {
+        const res = await fetch('http://localhost:8000/students');
+        const data = await res.json();
+        
+        return data
+        
+    } catch (error) {
+        console.log('getInitialProps failed: ' + error.message);
+        return {data: 'noDatabase'};
     }
 }
 
