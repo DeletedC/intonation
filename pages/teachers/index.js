@@ -75,6 +75,7 @@ const Index = (props) => {
                 })
                 : "Database is down. Please check back later."
                 }
+                {data == ""? <p>List is empty.</p> : ""}
             </ul>
         </Layout>
     );
@@ -84,8 +85,7 @@ Index.getInitialProps = async () => {
     try {
         const res = await fetch('http://localhost:8000/students');
         const data = await res.json();
-        
-        return data
+        return {data: data};
         
     } catch (error) {
         console.log('getInitialProps failed: ' + error.message);
