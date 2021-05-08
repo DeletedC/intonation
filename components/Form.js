@@ -69,9 +69,10 @@ const Form = (props) => {
                 value={formData.teacher}
                 onChange={handleChange}>
             </input>
-            <button onClick={() => {
+            <button onClick={(event) => {
                 props.handleSubmit(formData);
                 setFormData(props.initial);
+                event.preventDefault();
             }}>SUBMIT</button>
         </form>
     );
