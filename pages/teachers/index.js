@@ -36,7 +36,10 @@ const Index = (props) => {
                   'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
-              });
+            });
+            
+            console.log(response);
+
         } catch (error) {
             console.log(error);
         }
